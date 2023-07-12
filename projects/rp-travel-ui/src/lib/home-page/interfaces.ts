@@ -1,3 +1,6 @@
+/**
+ * all currency Mdel according to backend response
+ */
 export interface currencyModel {
     ID:number,
     Currency_Code:string,
@@ -7,6 +10,9 @@ export interface currencyModel {
     rate : number
  }
 
+ /**
+ * point Of Sale Mdel according to backend response
+ */
  export interface pointOfSaleModel { 
     ip?:string,
     city?:string,
@@ -31,6 +37,9 @@ export interface currencyModel {
     org?:string
 }
 
+ /**
+ * airPorts Mdel according to backend response
+ */
 export interface airPorts {
     airportCode:string,
     airportName:string,
@@ -41,6 +50,9 @@ export interface airPorts {
     regionName:string
 }
 
+ /**
+ * countries Mdel according to backend response
+ */
 export interface countries {
     pseudoCountryCode:string,
     countryName:string,
@@ -48,6 +60,10 @@ export interface countries {
     phoneCode:any
 }
 
+
+/**
+ * get all Cities Mdel according to backend response
+ */
 export interface hotelCities {
      CityId: number,
      City: string,
@@ -57,6 +73,9 @@ export interface hotelCities {
 }
 
 
+/**
+ * dynamic top destinations Mdel according to backend response
+ */
 export interface topCityFlight {
     id: number,
     distination: string,
@@ -71,6 +90,10 @@ export interface topCityFlight {
     tripIdeas: boolean
 }
 
+
+/**
+ * dynamic trip ideas Mdel according to backend response
+ */
 export interface tripideas {
     tripIdea:string,
     tribIdeaAr:string,

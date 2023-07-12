@@ -1,15 +1,23 @@
-export interface baseSearchresult {
+// this is the base model for the backend response
+export interface baseSearchResult {
     status: string;
     searchResultException:{code:string,exceptionMessage:string}
 }
   
-export interface FlightSearchResult extends baseSearchresult {
+/**
+ * this is the the model of the backend on case of status 200
+ */
+export interface FlightSearchResult extends baseSearchResult  {
     airlines: any[];
     airItineraries: airItineraries[];
     searchCriteria: searchCriteria;
     cabinClasses:string[]
+    passengersDetails?: any[],
 }
 
+/**
+ * containing the search criteria of the current request
+ */
 export interface searchCriteria {
     adultNum: number;
     childNum: number;
@@ -34,6 +42,9 @@ export interface searchCriteriaFlights{
 }
 
 
+/**
+ * flight itinerary Mdel
+ */
 export interface airItineraries {
     referralLink?:string; 
     otaName?:string;
@@ -57,7 +68,69 @@ export interface airItineraries {
     baggageInformation: baggageInformation[];
     searchCriteria?:searchCriteria;
     passengerFareBreakDownDTOs?:passengerFareBreakDownDTOs[]
-  }
+}
+
+
+/**
+ * Filter Form Model 
+ * [this is a generic model for the filter containing all filter criteria and you can use only what you need]
+ */
+
+export interface flighFilterForm{
+  airlines?:string[]
+  bookingSite?:string[]
+  stopsForm:{noStops:boolean,oneStop:boolean,twoAndm:boolean}
+  sameAirline?:boolean
+  priceSlider?:number[]
+  durationSlider?:number[]
+  dpartingSlider?:number[]
+  arrivingSlider?:number[]
+  returnSlider?:number[]
+  experience?:{overNight:boolean,longStops:boolean}
+  flexibleTickets?:{refund:boolean,nonRefund:boolean}
+}
+
+
+/**
+ * Filter Model 
+ * [this is a generic model for the filter containing all filter criteria and you can use only what you need]
+ */
+
+export interface flightResultFilter{
+    sameAirline?:boolean,
+    priceMin?:number,
+    priceMax?:number,
+    durationMin?:number,
+    durationMax?:number,
+    depatingMin?:number,
+    departingMax?:number,
+    arrivingMin?:number,
+    arrivingMax?:number,
+    returnMin?:number,
+    returnMax?:number,
+    stops?:{noStops:boolean,oneStop:boolean,twoAndm:boolean},
+    experience?:{overNight:boolean,longStops:boolean},
+    flexibleTicket?:{refund:boolean,nonRefund:boolean},
+    airlines?:string[],
+    bookingSites?:string[]
+}
+
+
+/**
+ * this model is mapping to flight fare rules response
+ */
+export interface FareRules {
+  departureCountry: string;
+  arrivalCountry: string;
+  adtRules: fares[];
+  cnnRules: fares[];
+  infRules: fares[];
+}
+
+export interface fares {
+  fareRule: string;
+  title: string;
+}
 
 export interface itinTotalFare {
     amount : number
@@ -73,7 +146,7 @@ export interface flight {
     elapsedTime: number;
     stopsNum: number;
     flightAirline?:FlightAirline
-  }
+}
 
 export interface FlightDTO {
     transitPosition?:string;
