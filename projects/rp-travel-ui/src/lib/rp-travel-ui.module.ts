@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RPTravelUIService } from './rp-travel-ui.service';
 import { EnvironmentService } from './shared/services/environment.service';
 import { FlightSearchBoxApiService } from './flight-search-box/services/flight-search-box-api.service';
+import { FlightCheckoutApiService } from './flight-checkout/services/flight-checkout-api.service';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { FlightSearchBoxApiService } from './flight-search-box/services/flight-s
     EnvironmentService,
     HomeApiService,
     UserApiService,
-    FlightSearchBoxApiService
+    FlightSearchBoxApiService,
+    FlightCheckoutApiService
   ]
 })
 export class RPTravelUIModule { }

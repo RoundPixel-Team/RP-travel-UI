@@ -1,4 +1,4 @@
-import { airItineraries, searchCriteria } from "../flight-search-results/interfaces";
+import { airItineraries, searchCriteria } from "../flight-results/interfaces";
 
 
 /**
@@ -32,3 +32,27 @@ export interface flightOfflineService {
     perPassenger: boolean,
     added?: boolean;
 }
+
+
+export interface passengerInfoModel  {
+    title:string,
+    firstName:string,
+    lastName:string,
+    dateOfBirth:string,
+    countryOfResidence:string,
+    countryCode:any,
+    phoneNumber:any,
+    passengerType:string,
+    nationality:string,
+    PassportNumber:string,
+    PassportExpiry:string,
+    IssuedCountry:string,
+   }
+   
+   export interface  passengersModel {  
+       bookingEmail:string,
+        UserCurrency:string,
+        DiscountCode: any,
+        passengersDetails:passengerInfoModel[
+       ]
+   }
